@@ -7,7 +7,6 @@ import (
 	"io/ioutil"
 	"math/rand"
 	"net/http"
-	"net/url"
 	"os"
 	"time"
 )
@@ -21,47 +20,19 @@ func init() {
 	slackChannel = os.Getenv("SLACK_CHANNEL")
 }
 
-// Request is the struct
-type Request struct {
-	Token       string `json:"token"`
-	TeamID      string `json:"team_id"`
-	TeamDomain  string `json:"team_domain"`
-	ChannelID   string `json:"channel_id"`
-	ChannelName string `json:"channel_name"`
-	UserID      string `json:"user_id"`
-	UserName    string `json:"user_name"`
-	Text        string `json:"text"`
-	TriggerWord string `json:"trigger_word"`
-}
-
 // Handle handles request
 func Handle(req *Request) (mes string, err error) {
 
-	req.ChannelName, err = url.QueryUnescape(req.ChannelName)
-	if err != nil {
-		return
-	}
-
-	req.Text, err = url.QueryUnescape(req.Text)
-	if err != nil {
-		return
-	}
-
-	req.TriggerWord, err = url.QueryUnescape(req.TriggerWord)
-	if err != nil {
-		return
-	}
-
-	if contains(req.Text, []string{"お疲れ", "おつかれ"}) {
+	if contains(string(req.Text), []string{"お疲れ", "おつかれ"}) {
 		if req.UserName == "tetsuji" {
-			mes = req.UserName + "くんはもう少し仕事して！"
+			mes = string(req.UserName) + "くんはもう少し仕事して！"
 			return
 		}
-		mes = req.UserName + "くん、お疲れ様！"
+		mes = string(req.UserName) + "くん、お疲れ様！"
 		return
 	}
 
-	if contains(req.Text, []string{"画像"}) {
+	if contains(string(req.Text), []string{"画像"}) {
 		postImage(kannaImage())
 		mes = ""
 		return
