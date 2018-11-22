@@ -75,12 +75,23 @@ func kannaImage() string {
 	return urls[rand.Intn(len(urls))]
 }
 
+func kannaWordWithImage() string {
+	replys := []string{
+		"私の画像ねー？　はい！",
+		"いいよー、はい！",
+		"仕方ないなあ、どうぞー",
+		"彼女とデートなうに使っていいよ！",
+		"そんなに欲しい...？しょうがないなー",
+	}
+	return replys[rand.Intn(len(replys))]
+}
+
 func postImage(imageURL string) error {
 	m := map[string]interface{}{}
 	m["icon_url"] = "https://avatars.slack-edge.com/2018-11-21/485246278661_dace41846137494f2582_72.jpg"
 	m["channel"] = slackChannel
 	m["username"] = "環奈"
-	m["text"] = "私の画像ねー？　はい！"
+	m["text"] = kannaWordWithImage()
 	m["attachments"] = []map[string]string{
 		map[string]string{
 			"fallback":  "環奈の画像だよ！",
