@@ -39,12 +39,12 @@ func Handle(req *Request) (mes string, err error) {
 	}
 
 	if contains(string(req.Text), []string{"好き", "すき"}) {
-    mes = string(req.UserName) + "さん、私も好き！"
-    if string(req.UserName) == "tsucchi" {
-      mes = "私は" + string(req.UserName) + "さんのこと友達だと思ってるよ？"
-    }
-    return
-  }
+		mes = string(req.UserName) + "さん、私も好き！"
+		if string(req.UserName) == "tsucchi" {
+			mes = "私は" + string(req.UserName) + "さんのこと友達だと思ってるよ？"
+		}
+		return
+	}
   
 	if contains(string(req.Text), []string{"ゆーじ"}) {
 		mes = "お酒を飲んでね"
