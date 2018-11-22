@@ -38,6 +38,12 @@ func Handle(req *Request) (mes string, err error) {
 		return
 	}
 
+	if contains(string(req.Text), []string{"ゆーじ"}) {
+		mes = "お酒を飲んでね"
+		postImage(kannaImage())
+		return
+	}
+
 	mes = "なに？"
 	return
 }
