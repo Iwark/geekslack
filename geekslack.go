@@ -38,6 +38,11 @@ func Handle(req *Request) (mes string, err error) {
 		return
 	}
 
+	if contains(string(req.Text), []string{"好き", "すき"}) {
+		mes = string(req.UserName) + "くん、私も好き！"
+		return
+	}
+
 	mes = "なに？"
 	return
 }
