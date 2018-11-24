@@ -33,7 +33,11 @@ func Handle(req *Request) (mes string, err error) {
 	}
 
 	if contains(string(req.Text), []string{"画像"}) {
-		postImage(kannaImage())
+		if string(req.UserName) == "tsucchi" {
+			postImage("http://image.news.livedoor.com/newsimage/stf/b/1/b1d66_1581_866a5825e531bd6dc93b505558c58d76.jpg")
+		} else {
+			postImage(kannaImage())
+		}
 		mes = ""
 		return
 	}
@@ -45,7 +49,7 @@ func Handle(req *Request) (mes string, err error) {
 		}
 		return
 	}
-  
+
 	if contains(string(req.Text), []string{"ゆーじ"}) {
 		mes = "お酒を飲んでね"
 		postImage(kannaImage())
