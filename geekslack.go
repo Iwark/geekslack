@@ -100,6 +100,7 @@ func kannaWordWithImage() string {
 		"仕方ないなあ、どうぞー",
 		"彼女とデートなうに使っていいよ！",
 		"そんなに欲しい...？しょうがないなー",
+		"わたしうんこしないんだー",
 	}
 	return replys[rand.Intn(len(replys))]
 }
