@@ -33,7 +33,7 @@ func Handle(req *Request) (mes string, err error) {
 	}
 
 	if contains(string(req.Text), []string{"画像"}) {
-		if string(req.UserName) == "hiro" {
+		if string(req.UserID) == "U7LQMT25T" {
 			postImage("http://ss.bokete.jp/8497603.jpg")
 		} else {
 			postImage(kannaImage())
