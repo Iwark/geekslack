@@ -27,6 +27,9 @@ func Handle(req *Request) (mes string, err error) {
 		if req.UserName == "tetsuji" {
 			mes = string(req.UserName) + "さんはもう少し仕事して！"
 			return
+		} else if req.Username == "sunshine" {
+			mes = string(req.UserName) + "おっけーサンシャイン!グラスを空けて！"
+			return
 		}
 		mes = string(req.UserName) + "さん、お疲れ様！"
 		return
@@ -53,15 +56,6 @@ func Handle(req *Request) (mes string, err error) {
 	if contains(string(req.Text), []string{"ゆーじ"}) {
 		mes = "お酒を飲んでね"
 		postImage(kannaImage())
-		return
-	}
-
-	if contains(string(req.Text), []string{"お疲れ", "おつかれ"}) {
-		if req.Username == "sunshine" {
-			mes = string(req.UserName) + "おっけーサンシャイン!グラスを空けて！"
-			return
-		}
-		mes = string(req.UserName) + "さん、お疲れ様！"
 		return
 	}
 
