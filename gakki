@@ -1,0 +1,1 @@
+curl -X POST --data-urlencode 'payload={"icon_url": "https://scontent-nrt1-1.cdninstagram.com/vp/284851e355e7a28936652546d62fad1f/5C4467EF/t51.2885-15/sh0.08/e35/s640x640/18513357_1873441946248347_386168373668478976_n.jpg", "channel": "#timeline_iwark", "username": "ガッキー", "text": "ちょっと待ってね❤️"}' https://hooks.slack.com/services/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

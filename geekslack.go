@@ -27,7 +27,7 @@ func Handle(req *Request) (mes string, err error) {
 		if req.UserName == "tetsuji" {
 			mes = string(req.UserName) + "さんはもう少し仕事して！"
 			return
-		} else if req.Username == "sunshine" {
+		} else if req.UserName == "sunshine" {
 			mes = string(req.UserName) + "おっけーサンシャイン!グラスを空けて！"
 			return
 		}
