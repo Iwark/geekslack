@@ -35,6 +35,24 @@ func Handle(req *Request) (mes string, err error) {
 		return
 	}
 
+	if contains(string(req.Text), []string{"たい焼き"}) {
+		m := map[string]interface{}{}
+		m["icon_url"] = "https://avatars.slack-edge.com/2018-11-21/485246278661_dace41846137494f2582_72.jpg"
+		m["channel"] = slackChannel
+		m["username"] = "環奈"
+		m["text"] = "たい焼きどこから食べる派？"
+		m["attachments"] = []map[string]string{
+			map[string]string{
+				"fallback":  "画像",
+				"image_url": "https://pbs.twimg.com/media/DyN3wRIU8AALweS.jpg",
+			},
+		}
+		body, _ := json.Marshal(m)
+		http.Post(slackWebhookURL, "application/json", bytes.NewReader(body))
+		mes = ""
+		return
+	}
+
 	if contains(string(req.Text), []string{"画像"}) {
 		if string(req.UserID) == "U7LQMT25T" {
 			postImage("http://ss.bokete.jp/8497603.jpg")
